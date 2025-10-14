@@ -40,7 +40,7 @@ export default function WorkExperience() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl mb-12 font-semibold dark:text-accent-foreground"
+          className="text-4xl mb-12 font-semibold dark:text-accent-foreground"
         >
           Experiência Profissional
         </motion.h2>

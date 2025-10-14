@@ -53,7 +53,7 @@ const MobileNav = ({ navShow, closeNav: toggleNav }: Props) => {
     <div className="relative">
       {/* OVERLAY */}
       <div
-        className={`fixed ${navOpen} inset-0 transform transition-all duration-500 z-[10000] bg-black/70 w-full h-screen`}
+        className={`fixed ${navOpen} inset-0 h-full min-h-screen transform transition-all duration-500 z-[10000] bg-black/70 w-full h-screen`}
         onClick={toggleNav}
       >
         <div
@@ -69,7 +69,7 @@ const MobileNav = ({ navShow, closeNav: toggleNav }: Props) => {
                 className="block"
               >
                 <p
-                  className={`text-5xl ml-10 sm:ml-20 sm:text-6xl ${getLinkClass(
+                  className={`text-4xl ml-10 sm:ml-20 md:text-6xl ${getLinkClass(
                     item.href
                   )}`}
                 >

@@ -23,7 +23,7 @@ const Hero: FC = () => {
                   },
                 },
               }}
-              className={`text-5xl max-w-3xl xl:text-6xl mt-40 md:mt-0 leading-14 md:leading-tight dark:text-accent-foreground`}
+              className={`text-4xl max-w-3xl xl:text-6xl mt-40 md:mt-0 leading-14 md:leading-tight dark:text-accent-foreground`}
             >
               {"Criando Experiências Digitais Através de Código e Design Criativo."
                 .split(" ")

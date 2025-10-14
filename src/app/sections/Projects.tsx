@@ -17,7 +17,9 @@ const Projects = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-start mb-16">
-          <h2 className="text-5xl  font-semibold ">Projectos Relevantes</h2>
+          <h2 className="text-4xl  font-semibold dark:text-accent-foreground">
+            Projectos Relevantes
+          </h2>
         </div>
 
         {/* Projects Grid */}
