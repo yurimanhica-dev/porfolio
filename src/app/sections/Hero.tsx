@@ -5,12 +5,14 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { FC } from "react";
 import { BsChevronDoubleDown } from "react-icons/bs";
+import DistortionEffect from "../components/ParticlesBackground";
 
 const Hero: FC = () => {
   return (
     <section id="home">
-      <div className="grid md:grid-cols-12 md:h-screen items-stretch sticky top-0 ">
+      <div className="grid md:grid-cols-12 md:h-[90vh] items-stretch sticky top-0 ">
         <div className="pl-5 md:pl-10 lg:pl-15 md:col-span-6 lg:col-span-7 flex flex-col justify-center items-center">
+          <DistortionEffect />
           <div className="container mx-auto flex flex-col items-start">
             <motion.h1
               initial="hidden"
@@ -23,7 +25,7 @@ const Hero: FC = () => {
                   },
                 },
               }}
-              className={`text-4xl max-w-3xl xl:text-6xl mt-40 md:mt-0 leading-14 md:leading-tight dark:text-accent-foreground`}
+              className={`text-4xl max-w-3xl xl:text-5xl mt-40 md:mt-0 leading-14 md:leading-tight dark:text-accent-foreground`}
             >
               {"Criando Experiências Digitais Através de Código e Design Criativo."
                 .split(" ")

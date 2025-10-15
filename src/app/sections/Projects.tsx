@@ -17,7 +17,7 @@ const Projects = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-start mb-16">
-          <h2 className="text-4xl  font-semibold dark:text-accent-foreground">
+          <h2 className="text-4xl font-semibold dark:text-accent-foreground">
             Projectos Relevantes
           </h2>
         </div>
@@ -70,31 +70,26 @@ const Projects = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 relative z-10 ">
+                <div className="p-6 relative z-10 flex flex-col h-[calc(100%-288px)]">
+                  {/* Title and Arrow */}
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-xl font-bold text-foreground flex-1 pr-4">
+                    <h3 className="font-bold uppercase text-2xl text-foreground flex-1 pr-4 outfit dark:text-accent-foreground">
                       {name}
                     </h3>
-                    <ArrowRight
-                      className={`w-5 h-5 text-primary mt-1 transition-all duration-300 ${
-                        hoveredProject === name
-                          ? "translate-x-1 -translate-y-1"
-                          : ""
-                      }`}
-                      strokeWidth={2}
-                    />
                   </div>
-                  <div className="outfit">
+
+                  {/* Description and Tech - Flex grow para ocupar espaço disponível */}
+                  <div className="flex flex-col flex-grow">
                     {/* Description */}
                     {description && (
-                      <p className="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
+                      <p className="text-muted-foreground text-lg mb-4 line-clamp-3 leading-relaxed flex-grow outfit">
                         {description}
                       </p>
                     )}
 
                     {/* Technologies */}
                     {tech && tech.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mb-6">
+                      <div className="flex flex-wrap gap-2 mb-6 outfit uppercase">
                         {tech.slice(0, 4).map((t: string) => (
                           <span
                             key={t}
@@ -112,40 +107,8 @@ const Projects = () => {
                     )}
                   </div>
 
-                  {/* Action Buttons */}
-                  <div
-                    className={`flex gap-3 transition-all duration-500 ${
-                      hoveredProject === name
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-4"
-                    }`}
-                  >
-                    {link && (
-                      <Link
-                        href={link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-all font-medium text-sm"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        Demo
-                      </Link>
-                    )}
-                    {github && (
-                      <Link
-                        href={github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 border border-border bg-background text-foreground rounded-xl hover:bg-muted transition-all font-medium text-sm"
-                      >
-                        <Github className="w-4 h-4" />
-                        Código
-                      </Link>
-                    )}
-                  </div>
-
-                  {/* Fallback hover state for mobile */}
-                  <div className="flex gap-3 md:hidden mt-4">
+                  {/* Action Buttons - Sempre visíveis e bem posicionados */}
+                  <div className="flex gap-3 mt-auto outfit font-semibold uppercase">
                     {link && (
                       <Link
                         href={link}
@@ -171,8 +134,8 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Hover Border Effect */}
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/20 rounded-3xl transition-all duration-300 pointer-events-none" />
+                {/* Hover Border Effect - Apenas no desktop */}
+                <div className="absolute inset-0 border-2 border-transparent md:group-hover:border-primary/20 rounded-3xl transition-all duration-300 pointer-events-none" />
               </div>
             )
           )}

@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 const experiences = [
   {
     role: "Full Stack Developer",
@@ -33,27 +31,19 @@ export default function WorkExperience() {
   return (
     <section
       id="experience"
-      className="py-24 md:py-32 bg-background text-foreground"
+      className="py-8 md:py-32 bg-background text-foreground"
     >
       <div className="container mx-auto c-space">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl mb-12 font-semibold dark:text-accent-foreground"
-        >
+        <h2 className="text-4xl mb-12 font-semibold dark:text-accent-foreground">
           Experiência Profissional
-        </motion.h2>
+        </h2>
 
         <div className="space-y-12 outfit">
           {experiences.map((exp, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-            >
-              <h3 className="text-2xl font-semibold">{exp.role}</h3>
+            <div key={i} className="border-b border-border pb-8">
+              <h3 className="text-2xl font-semibold dark:text-accent-foreground">
+                {exp.role}
+              </h3>
               <p className="text-lg text-muted-foreground">{exp.company}</p>
               <p className="text-sm mt-1 text-muted-foreground">{exp.period}</p>
               <p className="mt-4 text-lg leading-relaxed">{exp.description}</p>
@@ -67,7 +57,7 @@ export default function WorkExperience() {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

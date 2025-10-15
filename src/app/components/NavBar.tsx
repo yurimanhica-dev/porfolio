@@ -11,7 +11,9 @@ const NavBar = ({ openNav }: Props) => {
     <div className="fixed w-full h-[8vh] shadow-md backdrop-blur-2xl bg-background/40 transition-all  duration-200">
       <div className="container flex items-center h-full justify-between c-space mx-auto">
         {/* LOGO */}
-        <h1 className="text-3xl md:text-4xl text-terciar">Portfólio</h1>
+        <h1 className="text-4xl font-semibold md:text-4xl text-terciar">
+          Portfólio
+        </h1>
         {/* MOBILE ICON */}
         <div className="flex flex-row gap-6 justify-center">
           {/* <ModeToggle /> */}
