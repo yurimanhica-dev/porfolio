@@ -57,7 +57,7 @@ const MobileNav = ({ navShow, closeNav: toggleNav }: Props) => {
         onClick={toggleNav}
       >
         <div
-          className={`text-foreground ${navOpen} fixed justify-center flex flex-col h-full transform transition-all duration-500 delay-300  w-[85%] md:w-[60%] lg:w-[40%] space-y-6 z-50 bg-background opacity-100`}
+          className={`text-foreground ${navOpen} fixed justify-center flex flex-col h-full min-h-screen transform transition-all duration-500 delay-300  w-[90%] md:w-[60%] lg:w-[40%] space-y-6 z-50 bg-background opacity-100`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* NAV LINKS */}

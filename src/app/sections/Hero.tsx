@@ -11,9 +11,9 @@ const Hero: FC = () => {
   return (
     <section id="home">
       <div className="grid md:grid-cols-12 md:h-[90vh] items-stretch sticky top-0 ">
-        <div className="pl-5 md:pl-10 lg:pl-15 md:col-span-6 lg:col-span-7 flex flex-col justify-center items-center">
-          <DistortionEffect />
-          <div className="container mx-auto flex flex-col items-start">
+        <div className="relative pl-5 md:pl-10 lg:pl-15 md:col-span-6 lg:col-span-7 flex flex-col justify-center items-center">
+          <div className="container mx-auto flex flex-col items-start mb-20">
+            <DistortionEffect />
             <motion.h1
               initial="hidden"
               animate="visible"
@@ -73,7 +73,7 @@ const Hero: FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-20 md:mt-0 md:size-full md:absolute md:right-0 max-md:!w-full flex items-center justify-center bg-foreground"
+            className=" md:mt-0 md:size-full md:absolute md:right-0 max-md:!w-full flex items-center justify-center bg-foreground"
           >
             <div className="relative w-[350px] h-[450px] md:w-[400px] md:h-[520px] flex items-center justify-center">
               {/* Moldura elíptica com gradiente (simula a borda curva) */}
