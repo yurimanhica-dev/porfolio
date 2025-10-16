@@ -17,13 +17,13 @@ const Projects = () => {
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 0.3, y: 0 }}
         transition={{ duration: 1.5 }}
-        className="absolute top-10 right-10 w-32 h-32 bg-terciar rounded-full blur-xl z-0"
+        className="absolute top-10 left-10 w-32 h-32 bg-terciar rounded-full blur-xl z-0"
       />
       <motion.div
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 0.2, y: 0 }}
         transition={{ duration: 1.5, delay: 0.5 }}
-        className="absolute bottom-20 left-20 w-24 h-24 bg-terciar rounded-full blur-xl z-0"
+        className="absolute bottom-20 right-20 w-24 h-24 bg-terciar rounded-full blur-xl z-0"
       />
       <div className="container mx-auto c-space">
         {/* Header Section */}

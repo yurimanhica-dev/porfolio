@@ -36,9 +36,9 @@ export default function WorkExperience() {
     >
       <motion.div
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 0.1 }}
+        whileInView={{ opacity: 0.3 }}
         transition={{ duration: 1 }}
-        className="absolute bottom-0 right-0 -mt-70 w-[15rem] h-[15rem] bg-terciar translate-x-1/2 translate-y-1/2 rotate-45 z-0 opacity-20"
+        className="absolute top-0 left-0 -mt-20 w-[15rem] h-[15rem] bg-terciar -translate-x-1/2 -translate-y-1/2 rotate-45 z-0 opacity-50"
       />
       <motion.div
         initial={{ opacity: 0, scaleY: 0 }}

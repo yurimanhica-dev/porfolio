@@ -26,7 +26,7 @@ export const ProjectCard = ({
       {year && (
         <div className="absolute top-4 right-4 z-20 flex items-center gap-1 bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium">
           <Calendar className="w-3 h-3" />
-          20010
+          {year}
         </div>
       )}
 
