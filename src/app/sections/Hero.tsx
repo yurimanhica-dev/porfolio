@@ -8,7 +8,7 @@ import DistortionEffect from "../components/ParticlesBackground";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative z-10">
+    <section id="home" className="relative z-10 overflow-x-hidden">
       <div className="overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
