@@ -3,13 +3,24 @@
 import Button from "@/components/Button";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { FC } from "react";
 import { BsChevronDoubleDown } from "react-icons/bs";
 import DistortionEffect from "../components/ParticlesBackground";
 
-const Hero: FC = () => {
+const Hero = () => {
   return (
-    <section id="home">
+    <section id="home" className="relative z-10">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.5 }}
+        transition={{ duration: 1 }}
+        className="absolute bottom-0 right-0 w-[20rem] h-[20rem] bg-terciar translate-x-1/2 translate-y-1/2 rotate-45 z-0"
+      />
+      <motion.div
+        animate={{ y: [4, 15, 8] }}
+        whileInView={{ opacity: 0.3 }}
+        transition={{ duration: 6, repeat: Infinity, delay: 1 }}
+        className="absolute top-1/3 right-1/3  w-[10rem] h-[10rem] rounded-full blur-xl bg-terciar opacity-10 -translate-x-1/2 -translate-y-1/2 rotate-45 z-0"
+      />
       <div className="grid md:grid-cols-12 md:h-[90vh] items-stretch sticky top-0 ">
         <div className="relative pl-5 md:pl-10 lg:pl-15 md:col-span-6 lg:col-span-7 flex flex-col justify-center items-center">
           <div className="container mx-auto flex flex-col items-start mb-20">

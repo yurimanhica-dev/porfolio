@@ -1,5 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Send } from "lucide-react";
+"use client";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Mail, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -12,6 +22,7 @@ const ContactForm = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false); // controla o popup
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -22,52 +33,88 @@ const ContactForm = () => {
     });
   };
 
-  // No seu ContactForm, atualize a função handleSubmit:
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const isFormValid =
+    formData.name && formData.email && formData.subject && formData.message;
+
+  // Envio real do formulário
+  const sendForm = async () => {
     setIsSubmitting(true);
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       const result = await response.json();
 
       if (result.success) {
-        //console.log("Formulário enviado com sucesso!");
-        // Mostrar mensagem de sucesso para o usuário
         toast.success(
           "Mensagem enviada com sucesso! Entrarei em contacto em breve."
         );
       } else {
-        toast("Erro ao enviar mensagem. Por favor, tente novamente.");
+        toast.error("Erro ao enviar mensagem. Por favor, tente novamente.");
       }
     } catch (error) {
       toast.error("Erro ao enviar mensagem. Por favor, tente novamente.");
     } finally {
       setIsSubmitting(false);
-
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
     }
   };
 
-  const isFormValid =
-    formData.name && formData.email && formData.subject && formData.message;
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isFormValid) {
+      setShowConfirm(true); // mostra o popup
+    }
+  };
+
+  const confirmAndSend = async () => {
+    setShowConfirm(false);
+    await sendForm(); // executa envio real
+  };
 
   return (
-    <div>
-      {/* Contact Form */}
+    <div className="z-20 ">
+      {/* Popup de confirmação */}
+      <Dialog open={showConfirm} onOpenChange={setShowConfirm}>
+        <DialogContent className="sm:max-w-md outfit">
+          <DialogHeader>
+            <DialogTitle>Confirmar Email</DialogTitle>
+            <DialogDescription>
+              Deseja confirmar o envio da mensagem para:
+              <br />
+              <span className="font-semibold text-foreground">
+                {formData.email}
+              </span>
+              ?
+              <br />
+              Você será notificado através desse email.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="flex justify-end gap-3 mt-4">
+            <Button
+              variant="outline"
+              onClick={() => setShowConfirm(false)}
+              disabled={isSubmitting}
+            >
+              Cancelar
+            </Button>
+            <Button
+              onClick={confirmAndSend}
+              disabled={isSubmitting}
+              className="bg-terciar hover:bg-terciar/90"
+            >
+              <Mail className="w-4 h-4 mr-1" />
+              Confirmar & Enviar
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Formulário de contato */}
       <div>
         <h3 className="text-xl font-semibold mb-6 uppercase dark:text-accent-foreground">
           Envie uma Mensagem
@@ -77,7 +124,7 @@ const ContactForm = () => {
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-2">
-                Nome *
+                Nome
               </label>
               <input
                 type="text"
@@ -93,7 +140,7 @@ const ContactForm = () => {
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium mb-2">
-                Email *
+                Email
               </label>
               <input
                 type="email"
@@ -110,7 +157,7 @@ const ContactForm = () => {
 
           <div>
             <label htmlFor="subject" className="block text-sm font-medium mb-2">
-              Assunto *
+              Assunto
             </label>
             <input
               type="text"
@@ -126,7 +173,7 @@ const ContactForm = () => {
 
           <div>
             <label htmlFor="message" className="block text-sm font-medium mb-2">
-              Mensagem *
+              Mensagem
             </label>
             <textarea
               id="message"
@@ -138,7 +185,9 @@ const ContactForm = () => {
               placeholder="Digite sua mensagem"
               required
             />
-            <p>* Campos obrigatórios</p>
+            <p className="text-xs text-muted-foreground mt-2">
+              Preencha todos os campos acima para poder enviar a mensagem.
+            </p>
           </div>
 
           <button
@@ -146,7 +195,7 @@ const ContactForm = () => {
             disabled={!isFormValid || isSubmitting}
             className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium transition-all ${
               isFormValid && !isSubmitting
-                ? "bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
+                ? "bg-terciar text-background hover:bg-terciar/90 cursor-pointer"
                 : "bg-muted text-muted-foreground cursor-not-allowed"
             }`}
           >

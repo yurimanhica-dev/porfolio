@@ -233,13 +233,6 @@ export async function POST(request: Request) {
       </div>
     </div>
 
-    <!-- Status -->
-    <div style="text-align: center; margin-top: 32px;">
-      <div style="display: inline-flex; align-items: center; padding: 10px 20px; background: #00c896; color: #ffffff; border-radius: 20px; font-size: 13px; font-weight: 600;">
-        ✅ Mensagem Recebida com Sucesso
-      </div>
-    </div>
-
     <!-- Data -->
     <div style="text-align: center; margin-top: 40px; font-size: 14px; color: #a8a29e;">
       <strong>Data do Envio: </strong>${new Date().toLocaleString("pt-BR", {
@@ -255,9 +248,8 @@ export async function POST(request: Request) {
 
   <!-- Footer -->
   <div style="text-align: center; padding: 40px 32px; background: #1c1917; border-top: 1px solid #44403c;">
-    <p style="margin: 8px 0; font-size: 14px; color: #a8a29e;">E-mail Gerado automaticamente do portfolio de <strong style="color: #f45c2d;">Yuri Manhiça</strong>.</p>
-    <p style="margin: 8px 0; font-size: 14px; color: #a8a29e;">Esta é uma confirmação automática de Recepção da sua mensagem.</p>
-    <p style="margin: 8px 0; font-size: 14px; color: #a8a29e;">© ${new Date().getFullYear()}. Todos os direitos reservados.</p>
+    <p style="margin: 8px 0; font-size: 14px; color: #a8a29e;">Esta é uma confirmação automática de recepção da sua mensagem,gerada automaticamente a partir do portfolio de <strong style="color: #f45c2d;">Yuri Manhiça</strong>.</p>
+    <p style="margin: 8px 0; font-size: 14px; color: #a8a29e;">Todos os direitos reservados ©</p>
   </div>
 
 </div>

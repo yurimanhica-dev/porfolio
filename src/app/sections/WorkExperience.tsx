@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 
 const experiences = [
   {
@@ -31,8 +32,26 @@ export default function WorkExperience() {
   return (
     <section
       id="experience"
-      className="py-8 md:py-32 bg-background text-foreground"
+      className="py-8 md:py-18 bg-background text-foreground relative"
     >
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.1 }}
+        transition={{ duration: 1 }}
+        className="absolute bottom-0 right-0 -mt-70 w-[15rem] h-[15rem] bg-terciar translate-x-1/2 translate-y-1/2 rotate-45 z-0 opacity-20"
+      />
+      <motion.div
+        initial={{ opacity: 0, scaleY: 0 }}
+        whileInView={{ opacity: 0.3, scaleY: 1 }}
+        transition={{ duration: 1.2 }}
+        className="absolute right-10 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-terciar to-transparent z-0"
+      />
+      <motion.div
+        initial={{ opacity: 0, scaleY: 0 }}
+        whileInView={{ opacity: 0.2, scaleY: 1 }}
+        transition={{ duration: 1.2, delay: 0.3 }}
+        className="absolute right-22 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-primary to-transparent z-0"
+      />
       <div className="container mx-auto c-space">
         <h2 className="text-4xl mb-12 font-semibold dark:text-accent-foreground">
           Experiência Profissional

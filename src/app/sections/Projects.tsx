@@ -1,21 +1,31 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { projects } from "@/lib/types";
-import { ArrowRight, Calendar, ExternalLink, Github, Star } from "lucide-react";
-import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { ProjectCard } from "../components/ProjectCard";
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   return (
-    <section
-      id="projects"
-      className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/30 dark:from-background dark:to-muted/10"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="relative py-20 md:py-32 bg-background">
+      {/* Bolhas flutuantes */}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 0.3, y: 0 }}
+        transition={{ duration: 1.5 }}
+        className="absolute top-10 right-10 w-32 h-32 bg-terciar rounded-full blur-xl z-0"
+      />
+      <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        whileInView={{ opacity: 0.2, y: 0 }}
+        transition={{ duration: 1.5, delay: 0.5 }}
+        className="absolute bottom-20 left-20 w-24 h-24 bg-terciar rounded-full blur-xl z-0"
+      />
+      <div className="container mx-auto c-space">
         {/* Header Section */}
         <div className="text-start mb-16">
           <h2 className="text-4xl font-semibold dark:text-accent-foreground">
@@ -24,135 +34,28 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map(
-            ({
-              name,
-              image,
-              link,
-              github,
-              description,
-              tech,
-              featured,
-              year,
-            }) => (
-              <div
-                key={name}
-                className="group relative bg-card border border-border rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2"
-                onMouseEnter={() => setHoveredProject(name)}
-                onMouseLeave={() => setHoveredProject(null)}
-              >
-                {/* Featured Badge */}
-                {featured && (
-                  <div className="absolute top-4 left-4 z-20 flex items-center gap-1 bg-yellow-500 text-yellow-950 px-3 py-1 rounded-full text-sm font-medium">
-                    <Star className="w-3 h-3 fill-current" />
-                    Destaque
-                  </div>
-                )}
-
-                {/* Year Badge */}
-                {year && (
-                  <div className="absolute top-4 right-4 z-20 flex items-center gap-1 bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium">
-                    <Calendar className="w-3 h-3" />
-                    {year}
-                  </div>
-                )}
-
-                {/* Image Container */}
-                <div className="relative h-72 overflow-hidden">
-                  <Image
-                    src={image}
-                    alt={name}
-                    fill
-                    className="object-cover transition-all duration-700 group-hover:scale-110"
-                  />
-                  {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-card/20 to-transparent" />
-                </div>
-
-                {/* Content */}
-                <div className="p-6 relative z-10 flex flex-col h-[calc(100%-288px)]">
-                  {/* Title and Arrow */}
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="font-bold uppercase text-2xl text-foreground flex-1 pr-4 outfit dark:text-accent-foreground">
-                      {name}
-                    </h3>
-                  </div>
-
-                  {/* Description and Tech - Flex grow para ocupar espaço disponível */}
-                  <div className="flex flex-col flex-grow">
-                    {/* Description */}
-                    {description && (
-                      <p className="text-muted-foreground text-lg mb-4 line-clamp-3 leading-relaxed flex-grow outfit">
-                        {description}
-                      </p>
-                    )}
-
-                    {/* Technologies */}
-                    {tech && tech.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mb-6 outfit uppercase">
-                        {tech.slice(0, 4).map((t: string) => (
-                          <span
-                            key={t}
-                            className="text-xs font-medium bg-primary/10 text-primary px-3 py-1.5 rounded-full border border-primary/20"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                        {tech.length > 4 && (
-                          <span className="text-xs font-medium bg-muted text-muted-foreground px-3 py-1.5 rounded-full">
-                            +{tech.length - 4}
-                          </span>
-                        )}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Action Buttons - Sempre visíveis e bem posicionados */}
-                  <div className="flex gap-3 mt-auto outfit font-semibold uppercase">
-                    {link && (
-                      <Link
-                        href={link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-all font-medium text-sm"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        Demo
-                      </Link>
-                    )}
-                    {github && (
-                      <Link
-                        href={github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 border border-border bg-background text-foreground rounded-xl hover:bg-muted transition-all font-medium text-sm"
-                      >
-                        <Github className="w-4 h-4" />
-                        Código
-                      </Link>
-                    )}
-                  </div>
-                </div>
-
-                {/* Hover Border Effect - Apenas no desktop */}
-                <div className="absolute inset-0 border-2 border-transparent md:group-hover:border-primary/20 rounded-3xl transition-all duration-300 pointer-events-none" />
-              </div>
-            )
-          )}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.name}
+              project={project}
+              hoveredProject={hoveredProject}
+              setHoveredProject={setHoveredProject}
+            />
+          ))}
         </div>
 
         {/* CTA Footer */}
-        <div className="text-center mt-16">
-          <p className="text-muted-foreground mb-6">
-            Interessado em ver mais do meu trabalho?
+        <div className="text-center mt-16 outfit text-xl">
+          <p className="mb-6 uppercase font-semibold ">
+            Interessado em ver mais trabalhos?
           </p>
           <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-primary text-primary rounded-xl hover:bg-primary hover:text-primary-foreground transition-all font-medium"
+            href="#contact"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-terciar dark:text-accent-foreground rounded-xl hover:bg-terciar hover:text-accent-foreground transition-all font-medium up"
           >
-            Ver Todos os Projectos
-            <ArrowRight className="w-4 h-4" />
+            Entrar em contacto
+            <ArrowDown className="w-5 h-5 animate-bounce" />
           </Link>
         </div>
       </div>

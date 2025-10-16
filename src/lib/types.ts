@@ -21,7 +21,7 @@ export const navItems = [
   },
 ];
 
-type Project = {
+interface Project {
   name: string;
   image: string;
   link?: string;
@@ -30,7 +30,7 @@ type Project = {
   tech: string[];
   featured?: boolean;
   year?: string;
-};
+}
 
 export const projects: Project[] = [
   // {
@@ -77,7 +77,7 @@ export const projects: Project[] = [
   //   tech: ["Vite", "TypeScript", "TailwindCSS", "Framer Motion"],
   // },
   {
-    name: "MALEcaixa (demo)",
+    name: "MALEcaixa",
     image: "/projects/malecaixa.png",
     link: "https://malecaixa.vercel.app",
     github: "https://github.com/yurimanhica-dev/malecaixa",
@@ -86,12 +86,12 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion"],
   },
   {
-    name: "maleseguros (demo)",
+    name: "maleseguros",
     image: "/projects/maleseguros.png",
     link: "https://maleseguros.vercel.app",
     github: "https://github.com/yurimanhica-dev/maleseguros",
     description:
-      "Website institucional para empresa de correctora, exibindo planos e benefícios.",
+      "Website institucional para empresa de correctora, exibindo planos de cobertura e benefícios.",
     tech: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion"],
   },
   {
