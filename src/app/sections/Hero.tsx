@@ -11,9 +11,9 @@ const Hero = () => {
     <section id="home" className="relative z-10">
       <motion.div
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 0.5 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="absolute bottom-0 right-0 w-[20rem] h-[20rem] bg-terciar translate-x-1/2 translate-y-1/2 rotate-45 z-0"
+        className="absolute bottom-0 right-0 w-[20rem] h-[20rem] bg-terciar translate-x-1/2 translate-y-1/2 rotate-45 z-0 opacity-50"
       />
       <motion.div
         animate={{ y: [4, 15, 8] }}
@@ -36,7 +36,7 @@ const Hero = () => {
                   },
                 },
               }}
-              className={`text-4xl max-w-3xl xl:text-5xl mt-40 md:mt-0 leading-14 md:leading-tight dark:text-accent-foreground`}
+              className={`text-4xl max-w-3xl xl:text-5xl mt-40 md:mt-0 leading-14 md:leading-tight  dark:text-accent-foreground`}
             >
               {"Criando Experiências Digitais Através de Código e Design Criativo."
                 .split(" ")

@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { BackgroundText } from "../components/BackgroundText";
 import ContactForm from "../components/ContactForm";
@@ -7,11 +8,17 @@ import DistortionEffect from "../components/ParticlesBackground";
 
 export default function ContactFooter() {
   return (
-    <footer id="contact" className="md:pt-14 ">
+    <footer id="contact" className="md:pt-14 relative">
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 0.3, y: 0 }}
+        transition={{ duration: 1.5 }}
+        className="absolute md:-top-20 -top-20 right-4 md:right-10 md:w-60 md:h-60 w-32 h-32 bg-terciar rounded-full blur-xl z-0"
+      />
       <div className="container mx-auto c-space py-10">
         {/* Header */}
         <div className="text-start mb-12">
-          <h2 className="text-4xl font-semibold dark:text-accent-foreground mb-4">
+          <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-accent-foreground via-terciar/50 to-terciar bg-[length:200%_auto] animate-[gradient_8s_linear_infinite] mb-4">
             Vamos Trabalhar Juntos?
           </h2>
           <p className="text-lg max-w-4xl outfit">

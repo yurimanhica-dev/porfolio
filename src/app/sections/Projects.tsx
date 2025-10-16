@@ -17,18 +17,18 @@ const Projects = () => {
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 0.3, y: 0 }}
         transition={{ duration: 1.5 }}
-        className="absolute top-10 left-10 w-32 h-32 bg-terciar rounded-full blur-xl z-0"
+        className="absolute md:top-10 -top-30 right-4 md:left-10 md:w-60 md:h-60 w-32 h-32 bg-terciar rounded-full blur-xl z-0"
       />
       <motion.div
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 0.2, y: 0 }}
         transition={{ duration: 1.5, delay: 0.5 }}
-        className="absolute bottom-20 right-20 w-24 h-24 bg-terciar rounded-full blur-xl z-0"
+        className="absolute bottom-40 left-4  md:bottom-20  md:right-20 md:w-60 md:h-60 w-32 h-32 bg-terciar rounded-full blur-xl z-0"
       />
       <div className="container mx-auto c-space">
         {/* Header Section */}
         <div className="text-start mb-16">
-          <h2 className="text-4xl font-semibold dark:text-accent-foreground">
+          <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-accent-foreground via-terciar/50 to-terciar bg-[length:200%_auto] animate-[gradient_8s_linear_infinite]">
             Projectos Relevantes
           </h2>
         </div>

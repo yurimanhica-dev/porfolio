@@ -88,7 +88,7 @@ export const ProjectCard = ({
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-all font-medium text-sm"
+              className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-all font-medium text-sm"
             >
               <ExternalLink className="w-4 h-4" />
               Demo
