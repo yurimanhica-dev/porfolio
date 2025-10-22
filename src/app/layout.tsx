@@ -76,7 +76,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${be_logo.className} antialiased dark`}
+        className={`${be_logo.className} antialiased dark [&::-webkit-scrollbar]:h-0.5 
+          [&::-webkit-scrollbar-thumb]:bg-terciar/80
+          [&::-webkit-scrollbar-track]:bg-foreground/10
+          [&::-webkit-scrollbar-thumb]:rounded-full`}
         style={{ overflowX: "hidden" }}
       >
         <ThemeProvider

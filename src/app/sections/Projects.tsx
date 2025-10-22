@@ -10,7 +10,7 @@ const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   return (
-    <section id="projects" className="relative py-24 md:py-32 bg-background">
+    <section id="projects" className="relative pt-24 md:py-32 bg-background">
       {/* Bolhas flutuantes */}
       <motion.div
         initial={{ opacity: 0, y: 100 }}

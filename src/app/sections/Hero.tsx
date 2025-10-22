@@ -9,12 +9,12 @@ import DistortionEffect from "../components/ParticlesBackground";
 const Hero = () => {
   return (
     <section id="home" className="relative z-10">
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.8 }}
         transition={{ duration: 1 }}
         className="absolute bottom-0 right-0 w-[20rem] h-[20rem] bg-terciar translate-x-1/2 translate-y-1/2 rotate-45 z-0 opacity-50"
-      />
+      /> */}
       <motion.div
         animate={{ y: [4, 15, 8] }}
         whileInView={{ opacity: 0.3 }}

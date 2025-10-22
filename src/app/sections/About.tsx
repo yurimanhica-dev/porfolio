@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="py-0 md:py-24 dark:!bg-background dark:md:!bg-foreground bg-background md:bg-foreground "
+      className="pt-32 md:py-24 dark:!bg-background dark:md:!bg-foreground bg-background md:bg-foreground "
     >
       <div className="container mx-auto c-space text-foreground md:text-background dark:text-accent-foreground dark:md:!text-background">
         <motion.h2
@@ -14,7 +14,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-4xl mt-35 md:mt-0 font-semibold text-transparent bg-clip-text bg-gradient-to-r from-accent-foreground via-terciar/50 to-terciar bg-[length:200%_auto] animate-[gradient_8s_linear_infinite] dark:md:text-background"
+          className="text-4xl md:mt-0 font-semibold text-transparent bg-clip-text bg-gradient-to-r from-accent-foreground via-terciar/50 to-terciar bg-[length:200%_auto] animate-[gradient_8s_linear_infinite] dark:md:text-background"
         >
           Sobre mim
         </motion.h2>
