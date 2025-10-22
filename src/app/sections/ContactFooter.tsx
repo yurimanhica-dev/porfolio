@@ -8,7 +8,7 @@ import DistortionEffect from "../components/ParticlesBackground";
 
 export default function ContactFooter() {
   return (
-    <footer id="contact" className="md:pt-14 relative">
+    <footer id="contact" className="pt-14 relative">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 0.3, y: 0 }}
@@ -84,15 +84,27 @@ export default function ContactFooter() {
               <div className="flex gap-4">
                 <a
                   href="https://www.linkedin.com/in/yuri-manhi%C3%A7a/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="py-2 px-4 bg-background border border-border rounded-lg hover:bg-primary/10 transition-all"
                 >
                   <span className="font-medium">LinkedIn</span>
                 </a>
                 <a
-                  href="https://github.com/yurimanhica-dev"
+                  href="https://github.com/yurimanhica-dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="py-2 px-4 bg-background border border-border rounded-lg hover:bg-primary/10 transition-all"
                 >
                   <span className="font-medium">GitHub</span>
+                </a>
+                <a
+                  href="https://www.instagram.com/yxc_yuri/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-2 px-4 bg-background border border-border rounded-lg hover:bg-primary/10 transition-all"
+                >
+                  <span className="font-medium">Instagram</span>
                 </a>
               </div>
             </div>

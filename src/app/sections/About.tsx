@@ -14,7 +14,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-4xl mt-35 md:mt-0 font-semibold"
+          className="text-4xl mt-35 md:mt-0 font-semibold text-transparent bg-clip-text bg-gradient-to-r from-accent-foreground via-terciar/50 to-terciar bg-[length:200%_auto] animate-[gradient_8s_linear_infinite] dark:md:text-background"
         >
           Sobre mim
         </motion.h2>
@@ -24,7 +24,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-xl lg:text-2xl outfit mt-6 leading-relaxed"
+          className="text-xl lg:text-2xl outfit mt-6 leading-relaxed dark:text-foreground dark:md:text-background"
         >
           Sou Desenvolvedor Full Stack e Administrador de Bancos de Dados, com
           experiência em aplicações desktop, APIs RESTful e soluções web ({" "}

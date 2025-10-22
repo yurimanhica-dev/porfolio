@@ -8,20 +8,20 @@ import DistortionEffect from "../components/ParticlesBackground";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative z-10 ">
-      {/* <motion.div
+    <section id="home" className="relative z-10">
+      <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.8 }}
         transition={{ duration: 1 }}
-        className="absolute bottom-0 right-0 w-[20rem] h-[20rem] bg-terciar translate-x-1/2 translate-y-1/2 rotate-45 z-0 opacity-50 "
-      /> */}
+        className="absolute bottom-0 right-0 w-[20rem] h-[20rem] bg-terciar translate-x-1/2 translate-y-1/2 rotate-45 z-0 opacity-50"
+      />
       <motion.div
         animate={{ y: [4, 15, 8] }}
         whileInView={{ opacity: 0.3 }}
         transition={{ duration: 6, repeat: Infinity, delay: 1 }}
         className="absolute top-1/3 right-1/3  w-[10rem] h-[10rem] rounded-full blur-xl bg-terciar opacity-10 -translate-x-1/2 -translate-y-1/2 rotate-45 z-0"
       />
-      <div className="grid md:grid-cols-12 md:h-[90vh] items-stretch sticky top-0 ">
+      <div className="grid md:grid-cols-12 items-stretch sticky top-0 min-h-[85vh] z-10">
         <div className="relative pl-5 md:pl-10 lg:pl-15 md:col-span-6 lg:col-span-7 flex flex-col justify-center items-center">
           <div className="container mx-auto flex flex-col items-start mb-20">
             <DistortionEffect />
@@ -36,7 +36,7 @@ const Hero = () => {
                   },
                 },
               }}
-              className={`text-4xl max-w-3xl xl:text-5xl mt-40 md:mt-0 leading-14 md:leading-tight  dark:text-accent-foreground`}
+              className={`text-4xl max-w-3xl xl:text-5xl mt-40 md:mt-0 leading-14 md:leading-tight  text-transparent bg-clip-text bg-gradient-to-r from-accent-foreground via-terciar/50 to-terciar bg-[length:200%_auto] animate-[gradient_8s_linear_infinite]`}
             >
               {"Criando Experiências Digitais Através de Código e Design Criativo."
                 .split(" ")

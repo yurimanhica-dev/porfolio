@@ -30,10 +30,7 @@ const experiences = [
 
 export default function WorkExperience() {
   return (
-    <section
-      id="experience"
-      className="py-8 md:py-18 bg-background text-foreground relative"
-    >
+    <section id="experience" className="bg-background text-foreground relative">
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 0.2, y: 0 }}

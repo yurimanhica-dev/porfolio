@@ -82,16 +82,18 @@ const ContactForm = () => {
       <Dialog open={showConfirm} onOpenChange={setShowConfirm}>
         <DialogContent className="sm:max-w-md outfit">
           <DialogHeader>
-            <DialogTitle>Confirmar Email</DialogTitle>
+            <DialogTitle>Confirmação do Email</DialogTitle>
             <DialogDescription>
-              Deseja confirmar o envio da mensagem para:
-              <br />
+              Deseja confirmar o envio da mensagem através do email:{" "}
               <span className="font-semibold text-foreground">
                 {formData.email}
-              </span>
+              </span>{" "}
               ?
               <br />
-              Você será notificado através desse email.
+              <br />
+              <span className="text-terciar">
+                Você será notificado através do mesmo.
+              </span>
             </DialogDescription>
           </DialogHeader>
           <DialogFooter className="flex justify-end gap-3 mt-4">
@@ -185,7 +187,7 @@ const ContactForm = () => {
               placeholder="Digite sua mensagem"
               required
             />
-            <p className="text-xs text-muted-foreground mt-2">
+            <p className="text-muted-foreground mt-2">
               Preencha todos os campos acima para poder enviar a mensagem.
             </p>
           </div>
